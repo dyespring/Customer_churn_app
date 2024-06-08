@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Marketing</title>
+ </head>
+<body>
+        <h2>Welcome to Customer Churn Prediction App</h2>
+        <h3>Enter customer info</h3>
+        <form action = "{{ url_for('customerchurn') }}" method="POST">
+            <table border="1" style="border-color:gray; border-collapse:collapse;" cellpadding="5" cellspacing="5">
+                <tr>
+                    <td><h4>Call_Failure</h4> 
+                        <input type="number" name="Call_Failure" min="0" max="100000" > </td>       
+                    <td><h4>Complaint</h4> 
+                        <select name = "Complaint">
+                            <option value="No complaint">No complaint</option>
+                            <option value="complaint">complaint</option>
+                        </select>
+                    </td>              
+                    <td><h4>Tenure</h4> 
+                        <input type="number" name="Tenure" min="0" max="100000" > </td>             
+                    <td><h4>Charge_Amount</h4>
+                        <input type="number" name="Charge_Amount" min="0" max="9"> </td>                         
+                    <td><h4>Seconds_of_Use</h4>
+                        <input type="number" name="Seconds_of_Use" min="0" max="1000000"> </td>      
+                    <td><h4>Frequency_of_use</h4>
+                        <input type="number" name="Frequency_of_use" min="0" max="1000000"> </td>      
+                    <td><h4>Frequency_of_SMS</h4>
+                        <input type="number" name="Frequency_of_SMS" min="0" max="1000000"> </td>
+                    </tr>      
+                    <tr>
+                    <td><h4>Distinct_Called_Numbers</h4>
+                        <input type="number" name="Distinct_Called_Numbers" min="0" max="1000000"> </td>      
+                    <td><h4>Age_Group</h4>
+                        <select name = "Age_Group">
+                            <option value="20-30">20-30</option>
+                            <option value="30-40">30-40</option>
+                            <option value="40-50">40-50</option>
+                            <option value="50-60">50-60</option>
+                            <option value="60-70">60-70</option>
+                        </select>
+                    </td>     
+                    <td><h4>Age</h4>
+                        <input type="number" name="Age" min="18" max="99"> </td>   
+                    <td><h4>Tariff_Plan</h4>
+                        <select name = "Tariff_Plan">
+                            <option value="Pay as you go">Pay as you go</option>
+                            <option value="contractual">contractual</option>
+                        </select>
+                    </td>      
+                    <td><h4>Status</h4>
+                        <select name = "Status">
+                            <option value="active">active</option>
+                            <option value="non-active">non-active</option>
+                        </select>
+                    </td>      
+                    <td><h4>Customer_Value</h4>
+                        <input type="number" name="Customer_Value" min="0" max="1000000"> </td>  
+                                 
+                </tr>
+            </table>
+            <!-- <input type="hidden" id="forminput" name="forminput"  >    -->        
+            <p><input type="submit" value="Will the customer churn in short time?"></p>
+             {% if (results) %} 
+             <h3> Customer prediction: {{ results }}  </h3>
+             <p> Thank you for choosing our prediction model!!!</p>
+             {% endif %} 
+        </form>
+</body>
+</html>
